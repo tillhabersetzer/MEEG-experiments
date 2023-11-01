@@ -7,7 +7,7 @@ Auditory Oddball experiment with a sequence of double tones. The double tones ar
 The folder for each modality either EEG or MEG contains:
 - experiment script (two versions for different setups)
 - stimuli folder (containing wav-files)
-- s script to check stimuli
+- a script to check stimuli
 - results folder
 
 Inspiration:
