@@ -34,15 +34,15 @@ Hölle, D., Meekes, J. & Bleichner, M.G. Mobile ear-EEG to study auditory attent
 - Oddball_eeg_triggerbox.py:
   This script uses a RME Fireface soundcard in combination with a costum-made Triggerbox to synchronize both audio channels and the trigger channel on the soundcard. The software for the playback is called SoundMexPro and
   requires a license.
-  RME Fireface Analogout 1/2 for audio left / right
-  SPDIF for audio trigger standard / target via costum-made Triggerbox
-  Button presses recorded via keyboard. Additionaly, SoundMexPro is used to send a trigger pulse (SPDIF)
+  - RME Fireface Analogout 1/2 for audio left / right
+  - SPDIF for audio trigger standard / target via costum-made Triggerbox
+  - Button presses recorded via keyboard. Additionaly, SoundMexPro is used to send a trigger pulse (SPDIF)
 
 - Oddball_brainproducts_triggerbox.py
   This script uses a RME Fireface soundcard in combination with a brain products triggerbox. The software for the playback is called SoundMexPro and requires a license.
-  RME Fireface Analogout 1/2 for audio left / right
-  Brain Products TriggerBox Plus for standard / target triggers
-  Button presses recorded via keyboard. Additionaly, Brain Products TriggerBox Plus is used to send a trigger pulse 
+  - RME Fireface Analogout 1/2 for audio left / right
+  - Brain Products TriggerBox Plus for standard / target triggers
+  - Button presses recorded via keyboard. Additionaly, Brain Products TriggerBox Plus is used to send a trigger pulse 
 
 ### MEG
 
@@ -50,22 +50,22 @@ In order to use the ButtonListener of the DATAPixx device the ButtonIDs must be 
 
 Verions:
 - Oddball_datapixx_v1.py:
-  AnalogOut 1/2 for audio left / right (DacSchedule for all 4 channels)
-  AnalogOut 3/4 for trigger standard / target
-  Dout 1 for button presses (DoutSchedule)
+  - AnalogOut 1/2 for audio left / right (DacSchedule for all 4 channels)
+  - AnalogOut 3/4 for trigger standard / target
+  - Dout 1 for button presses (DoutSchedule)
   
 - Oddball_datapixx_v2.py:
   In comparison to version 1 all trigger are digital. DOUT schedules only control the first 16 DOUT channels (channels 0-15), leaving the upper 8 bits (channels 16-23) programmable with register writes.
-  AnalogOut 1/2 for audio left / right (DacSchedule for 2 channels)
-  Dout 16/17 for standard / target trigger (via RegisterWrites)
-  Dout 1 for Dout 1 for button presses (DoutSchedule)
+  - AnalogOut 1/2 for audio left / right (DacSchedule for 2 channels)
+  - Dout 16/17 for standard / target trigger (via RegisterWrites)
+  - Dout 1 for Dout 1 for button presses (DoutSchedule)
   
 - Oddball_soundmexpro.py:
   This script uses a RME Fireface soundcard in combination with a costum-made Triggerbox to synchronize both audio channels and the trigger channel on the soundcard. The software for the Playback is called SoundMexPro and
   requires a license.
-  RME Fireface Analogout 1/2 for audio left / right
-  SPDIF for audio trigger standard / target via costum-made Triggerbox
-  Dout 1 for button presses (DoutSchedule)
+  - RME Fireface Analogout 1/2 for audio left / right
+  - SPDIF for audio trigger standard / target via costum-made Triggerbox
+  - Dout 1 for button presses (DoutSchedule)
   
 ## Simple Auditory Evoked Fields
 
@@ -77,9 +77,11 @@ The script offers the possibility to adjust the gain for each audio channel by s
 The experiment exists in two versions. Both of them are using a VPixx Technologies DATAPixx 3 device in different ways.
 
 Versions:
-v1 (version 1) AEF_exp_v1.py: AnalogOut 1/2/3 for audio left/right/trigger (DAC schedule with 3 channels)
-v2 (version 2) AEF_exp_v2.py: AnalogOut 1/2 for audio left/right (DAC schedule with 2 channels)
-                              Dout 1 for event trigger (Dout schedule with 1 channel)
+v1 (version 1) AEF_exp_v1.py: 
+- AnalogOut 1/2/3 for audio left/right/trigger (DAC schedule with 3 channels)
+v2 (version 2) AEF_exp_v2.py:
+- AnalogOut 1/2 for audio left/right (DAC schedule with 2 channels)
+- Dout 1 for event trigger (Dout schedule with 1 channel)
 
 The experiment consists of:
 - calibration.py: Script for acoustic calibration
