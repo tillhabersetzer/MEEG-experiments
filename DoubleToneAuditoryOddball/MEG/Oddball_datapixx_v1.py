@@ -31,10 +31,13 @@ Hölle, D., Meekes, J. & Bleichner, M.G. Mobile ear-EEG to study auditory
 attention in everyday life. Behav Res 53, 2025–2036 (2021).
 https://doi.org/10.3758/s13428-021-01538-0
 https://rdcu.be/dlAje
+
+v1 -- version 1: Analog Audio, Analog trigger for Audio Events, Digital Trigger for 
+                 Button Presses
   
 Hardware / Software details
 -------------------------------------------------------------------------------
-- Windows + Python + PsychoPy
+- Python + PsychoPy
 Audio
 -----
 - DATAPixx AnalogOut 1 (left)
@@ -64,10 +67,12 @@ In use:
   
 Specifics
 ---------
-It is not possible to use multiple DoutSchedules at the same time. Therefore,
-the ButtonSchedule, generating a trigger when a button is pressed, is blocking
-the DoutSchedule for the entirety of the experiment.
-Triggers for the audio signals cant be send through the digital ports anymore.
+It is not possible to use multiple DoutSchedules at the same time. This is a 
+hardware limitation of the DATAPixx device. Therefore, the ButtonSchedule, 
+generating a trigger when a button is pressed, is blocking other DoutSchedules 
+for the entirety of the experiment.
+Therefore, riggers for the audio signals cant be send through the digital ports 
+via DoutSchedule.
 In order to make it work the DoutSchedules for buttons and audio triggers have 
 to be used one at a time in an interleaved fashion.
 As a workaround, the audiotriggers are send as an analog signal with the digital
@@ -79,11 +84,6 @@ in the MEG Stimulus Trigger Interface.
 Due to that it is possible to only encode to different triggers, one for the
 standard and one for a deviant. That is why, both tones within a double tone 
 trial have the same trigger value. 
-
-Optimization
-------------
-- If its possible to use multiple DoutSchedules simultaneously, replace analog
-  audio trigger with digital triggers.
 """
 
 #%% Import packages
@@ -296,7 +296,6 @@ c[0:TrigLen_samp] = 5
 d = np.zeros(len(sig_standard2))
 d[0:TrigLen_samp] = 5
 trigger_standard = np.concatenate((c,gap,d))
-
     
 if plot_signals:
     plt.figure()
