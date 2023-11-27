@@ -1,14 +1,14 @@
 # MEEG-experiments
 This repository contains different experiments for MEG and EEG. The differentitaion between MEG and EEG is based on the hardware in each lab at the Carl von Ossietzky University Oldenburg.
-Depening on your hardware equipment you can ignore the division.
+Depending on your hardware equipment you can ignore the division.
 
-MEG:
+MEG lab:
 - Elekta Neuromag® TRIUX 
 - DATAPixx 3 (https://vpixx.com/products/datapixx3/)
 - Costum made Triggerbox with RME Fireface UCX Soundcard (https://www.rme-audio.de/de_fireface-ucx.html)
 - SoundMexPro Software (https://www.soundmexpro.de/home)
 
-EEG:
+EEG lab:
 - Bittium NeurOne™ Tesla EEG System (https://www.bittium.com/medical/bittium-neurone)
 - Costum made Triggerbox with RME Fireface UCX Soundcard
 - Brain Products TriggerBox Plus (https://www.brainproducts.com/solutions/triggerbox/)
