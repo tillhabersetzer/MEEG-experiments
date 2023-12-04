@@ -114,7 +114,7 @@ Computation of Auditory Evoked Fields.
 ##### plot_erf.m
 Visualization of Auditory Evoked Fields.
 
-###### compute_dipolfit.m
+##### compute_dipolfit.m
 Computation of a two dipole fit based on AEFs. First, the dipolfits are computed with a symmetry constraint which is released in a second step for a nonlinear optimization.
 
 ##### plot_dipolfit.m
