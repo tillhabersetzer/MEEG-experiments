@@ -90,6 +90,37 @@ Version 2
 - calibration.py: Script for acoustic calibration of experiment
 - click.wav: Audio file with click stimulus
 
+### code
+Analysis Code based on FieldTrip (https://www.fieldtriptoolbox.org/).
+During the analysis Auditory Evoked Fields (AEFs) are computed and fitted with a two dipole model.
+
+#### Included Scripts
+
+##### main_settings.m
+This script contains basic settings e.g. filepaths for data and fiedltrip. It is executed within the other scripts.
+
+##### check_trigger.m
+Checks trigger sequences in the recorded files.
+
+##### headmodel.m
+Computation of a headmodel (single shell headmodel Guido Nolte) for MEG. It performs coregistration between mri and MEG device and saves several processed mris (resliced, segmented, defaced).
+
+##### volumetric_sourcemodel.m
+Computation of a grid based volumetric sourcemodel. The sourcemodel can be restricted with an anatomical Atlas (e.g. only STG regions). The source model is also inverse warped onto a subject-specific anatomical mri.
+
+##### compute_erfs.m
+Computation of Auditory Evoked Fields.
+
+##### plot_erf.m
+Visualization of Auditory Evoked Fields.
+
+###### compute_dipolfit.m
+Computation of a two dipole fit based on AEFs. First, the dipolfits are computed with a symmetry constraint which is released in a second step for a nonlinear optimization.
+
+##### plot_dipolfit.m
+Visualization of the fitted dipoles, in space and in time.
+
+
 
 
 
