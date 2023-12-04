@@ -79,12 +79,14 @@ The experiment exists in two versions. Both of them are using a VPixx Technologi
 #### Versions:
 
 | AEF_exp_v1.py: Version 1 | AEF_exp_v2.py: Version 2 |
+| --- | --- |
 | - AnalogOut 1/2/3 for audio left/right/trigger (DAC schedule with 3 channels) | - AnalogOut 1/2 for audio left/right (DAC schedule with 2 channels)
 - Dout 1 for event trigger (Dout schedule with 1 channel)|
 
 ##### Other files included
 
 | Filename | Description |
+| --- | --- |
 | calibration.py | Script for acoustic calibration of experiment |
 | click.wav | Audio file with click stimulus |
 
@@ -95,6 +97,7 @@ During the analysis Auditory Evoked Fields (AEFs) are computed and fitted with a
 #### Included Scripts
 
 | Scriptname | Description |
+| --- | --- |
 | main_settings.m | This script contains basic settings e.g. filepaths for data and fiedltrip. It is executed within the other scripts. |
 | check_trigger.m | Checks trigger sequences in the recorded files. | 
 | headmodel.m | Computation of a headmodel (single shell headmodel Guido Nolte) for MEG. It performs coregistration between mri and MEG device and saves several processed mris (resliced, segmented, defaced). |
