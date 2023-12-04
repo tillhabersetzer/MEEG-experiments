@@ -80,8 +80,8 @@ The experiment exists in two versions. Both of them are using a VPixx Technologi
 
 | AEF_exp_v1.py: Version 1 | AEF_exp_v2.py: Version 2 |
 | --- | --- |
-| - AnalogOut 1/2/3 for audio left/right/trigger (DAC schedule with 3 channels) | - AnalogOut 1/2 for audio left/right (DAC schedule with 2 channels)
-- Dout 1 for event trigger (Dout schedule with 1 channel)|
+| AnalogOut 1/2/3 for audio left/right/trigger (DAC schedule with 3 channels) | AnalogOut 1/2 for audio left/right (DAC schedule with 2 channels)
+| | Dout 1 for event trigger (Dout schedule with 1 channel) |
 
 ##### Other files included
 
