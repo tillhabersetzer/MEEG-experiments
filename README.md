@@ -77,16 +77,19 @@ The script offers the possibility to adjust the gain for each audio channel by s
 The experiment exists in two versions. Both of them are using a VPixx Technologies DATAPixx 3 device in different ways.
 
 Versions:
-v1 (version 1) AEF_exp_v1.py: 
+AEF_exp_v1.py: 
+Version 1
 - AnalogOut 1/2/3 for audio left/right/trigger (DAC schedule with 3 channels)
-v2 (version 2) AEF_exp_v2.py:
+  
+AEF_exp_v2.py:
+Version 2
 - AnalogOut 1/2 for audio left/right (DAC schedule with 2 channels)
 - Dout 1 for event trigger (Dout schedule with 1 channel)
 
-The experiment consists of:
-- calibration.py: Script for acoustic calibration
+Other files included
+- calibration.py: Script for acoustic calibration of experiment
 - click.wav: Audio file with click stimulus
-- AEF_exp_v1/2: experiment script
+
 
 
 
