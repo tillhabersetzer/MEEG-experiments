@@ -37,10 +37,14 @@ In use:
     BNC (Dout1) to MEG Trigger Interface (STI001) 
     Wiring and EventValue define the event value for the MEG      
     
-ToDo:
-    - Check if DPxWriteDacBuffer needs to be executed once before the loop or
-      every loop
-    - Check Calibration
+Note
+----
+In case insert earphones are used during the measurent, it is extremely 
+important to check the fit. Cause the earphones are usually calibrated with an 
+external ear simulator (e.g. B&K Type 4157 with DB2012) the foam eartips must 
+be placed 'tighty' in the ear canal. Inaccurate placement can lead easily to 
+different sound levels destroying the calibration and leading to a 
+lateralization of effects.
 """
 
 #%% Import packages
@@ -61,7 +65,7 @@ import sys
 plot_click = False
 
 # Audio signal
-NumTrials = 20
+NumTrials = 400
 audiofile = 'click.wav'
 jitter_interval = [1, 1.2] # sec
 TrigLen = 0.1 # 100 ms
@@ -69,8 +73,8 @@ TrigLen = 0.1 # 100 ms
 # Define calibration values
 #--------------------------
 # Gain is applied so so that targetlevel is reached
-TargetLevel = 85 # dB (dB Peak SPL, dB -p peSPL, depends on the calibration method)
-CalVal = [114,114] # Result of calibration
+TargetLevel = 95 # dB (dB Peak SPL, dB -p peSPL, depends on the calibration method)
+CalVal = [96.4,96.2] # Result of calibration
 
 # Channel mapping for AnalogOut
 #------------------------------
@@ -98,9 +102,9 @@ click = np.hstack((click,np.zeros(Nsamples-len(click))))
 
 # trigger
 #--------
-trigger = np.zeros(Nsamples)
+trigger = np.zeros(Nsamples, dtype=int)
 # set 100 ms to 5V
-trigger[0:round(round(0.1*fs))] = 5
+trigger[0:round(round(0.1*fs))] = TriggerValue
     
 # Jitter
 #-------
@@ -198,7 +202,7 @@ for trial in range(0,NumTrials):
     
     # Implements a digital output schedule in a DATAPixx
     #---------------------------------------------------
-    dp.DPxSetDoutSchedule(scheduleOnset = 0,
+    dp.DPxSetDoutSchedule(scheduleOnset = 0.0,
                           scheduleRate = fs,
                           maxScheduleFrames = Nsamples,
                           bufferAddress = int(8e6), 

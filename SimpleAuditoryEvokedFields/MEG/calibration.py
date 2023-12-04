@@ -39,6 +39,24 @@ Procedure (Peak-to-peak-equivalent sound pressure level measurement)
 ToDo:
     - Check how to stop the function
     
+Recommended Calibration Equipment for Insert Earphones
+------------------------------------------------------
+B&K Type 4157 Ear Simulator
+B&K External Ear Simulator DB2012 with sercure cap
+B&K 2250 Sound Level Meter/Analyzer
+B&K ZC-0032 microphone preamplifier 
+B&K Type 4231 Sound Calibrator 
+
+Last calibration (30.12.23)
+---------------------------
+# Use LCpeak?! (The C-weighted Peak measurement)
+
+# Left -10 dB Fs -> 86.4 dB(C): CalVal = 96.4 dB
+
+# Right -10 dB Ds -> 86.2 dB(C): CalVal = 96.2 dB
+
+CalVal = [96.4, 96.2] dB
+    
 """
 
 #%% Import packages
@@ -47,6 +65,8 @@ from pypixxlib import _libdpx as dp
 import soundfile as sf
 import numpy as np
 import os.path as op
+from psychopy import core
+from psychopy.hardware import keyboard
 
 #%% Function defintion
 #------------------------------------------------------------------------------
@@ -67,6 +87,9 @@ def play_calsig(channel=0, gaindB = -10):
     #--------------------------------------------------------------------------
     audiofile = 'click.wav'
     jitter_interval = 1 # sec
+    
+    kb = keyboard.Keyboard()
+    kb.clearEvents() # clear events
 
     #  Establishing a connection to VPixx hardware 
     #---------------------------------------------
@@ -116,7 +139,17 @@ def play_calsig(channel=0, gaindB = -10):
                          numBufferFrames = Nsamples)
     dp.DPxStartDacSched()  
     dp.DPxWriteRegCache()
-  
+    
+    not_pressed = True
+
+    while not_pressed:
+        keys = kb.getKeys(['space','escape'])
+        # Emergency stop
+        if 'escape' in keys:
+            print('\n!!!Experiment stopped!!!')
+            not_pressed = False
+            # sys.exit()
+        core.wait(0.01) 
 
     print('Audio playback finished.')
 
@@ -128,4 +161,4 @@ def play_calsig(channel=0, gaindB = -10):
     
 #%% Calibration
 #------------------------------------------------------------------------------
-play_calsig(channel=0, AttdB = 10)
+play_calsig(channel=[0], gaindB = -10)
