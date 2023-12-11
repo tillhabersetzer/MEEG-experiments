@@ -54,7 +54,7 @@ artifact_rejection = true;
 use_ssp = false;
 
 % Use maxfiltered files
-use_maxfilter = false;
+use_maxfilter = true;
 
 % Check frequency spectrum
 check_spectrum = false;
@@ -117,21 +117,20 @@ for subidx=subjects % loop over subjects
         cfg.coilaccuracy = 0; % SI units
         cfg.hpfilter     = 'yes';
         cfg.hpfreq       = filter_freqs(1);
-        cfg.dataset      = datapath;
         data             = ft_preprocessing(cfg,data); 
 
-        % notch filter for train (16.7 Hz)
+        % notch filter for train (16.7 Hz) - Avoid this - use maxfilter
         %---------------------------------
-        cfg              = [];
-        cfg.channel      = 'meg'; 
-        cfg.continuous   = 'yes';
-        cfg.coilaccuracy = 0; % SI units
-        % cfg.dftfilter    = 'yes';% does not work (only 50 Hz...)
-        % cfg.dftfreq      = 16.7;
-        % cfg.dftreplace   = 'zero'; % 'zero' implies DFT filter
-        cfg.bsfilter     = 'yes';
-        cfg.bsfreq       = [16, 17]; 
-        data             = ft_preprocessing(cfg,data); 
+        % cfg              = [];
+        % cfg.channel      = 'meg'; 
+        % cfg.continuous   = 'yes';
+        % cfg.coilaccuracy = 0; % SI units
+        % % cfg.dftfilter    = 'yes';% does not work (only 50 Hz...)
+        % % cfg.dftfreq      = 16.7;
+        % % cfg.dftreplace   = 'zero'; % 'zero' implies DFT filter
+        % cfg.bsfilter     = 'yes';
+        % cfg.bsfreq       = [16, 17]; 
+        % data             = ft_preprocessing(cfg,data); 
 
 
         % Check spectrum
@@ -173,9 +172,9 @@ for subidx=subjects % loop over subjects
             figure
             for i=1:2
                 if i==1
-                    channels = 'megmag'
+                    channels = 'megmag';
                 else
-                    channels = 'megplanar'
+                    channels = 'megplanar';
                 end
 
                 cfg                = [];
@@ -186,7 +185,7 @@ for subidx=subjects % loop over subjects
                 loglog(spectrum_selection.freq,spectrum_selection.powspctrm,'Color',[0.5 0.5 0.5 0.2]);
                 xlabel('Frequency (Hz)');
                 ylabel('log(absolute power)');
-                xlim([2,200])
+                xlim([0,200])
                 title(channels)
                 grid on
             end
@@ -199,7 +198,7 @@ for subidx=subjects % loop over subjects
             cfg.showlabels = 'yes'; % show channel labels
             cfg.fontsize   = 6;
             cfg.layout     = 'neuromag306mag.lay';
-            cfg.xlim       = [2,200];
+            cfg.xlim       = [0,200];
             ft_multiplotER(cfg, spectrum);
             sgtitle([subject,': Magnetometers'])
             
@@ -209,7 +208,7 @@ for subidx=subjects % loop over subjects
             cfg.showlabels = 'yes'; 
             cfg.fontsize   = 6;
             cfg.layout     = 'neuromag306planar.lay'; 
-            cfg.xlim       = [2,200];
+            cfg.xlim       = [0,200];
             ft_multiplotER(cfg, spectrum);
             sgtitle([subject,': Gradiometers'])
             clear data_epoched spectrum

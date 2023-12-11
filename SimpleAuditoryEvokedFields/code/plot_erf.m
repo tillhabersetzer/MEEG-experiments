@@ -119,7 +119,7 @@ switch sensortype
 end
 
 % time window for topoplot
-timewin = [0.05, 0.15];
+timewin = [0.075, 0.1];
 
 figure
 for cidx = 1:C

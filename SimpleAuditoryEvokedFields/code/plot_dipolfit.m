@@ -20,7 +20,7 @@ clc
 eval('main_settings')
 
 % Select subject for plotting
-subidx  = 3;
+subidx  = 1;
 subject = ['sub-',num2str(subidx,'%02d')];
 
 % directory where data has been stored
@@ -30,9 +30,9 @@ dir2save = fullfile(settings.path2project,'derivatives',subject);
 time2plot = [-250 750]; % ms
 
 % Choose sensortype for visualization
-% channeltype = 'megplanar'; % gradiometers
+channeltype = 'megplanar'; % gradiometers
 % channeltype = 'megmag'; % magnetometers
-channeltype = 'meg'; % all
+% channeltype = 'meg'; % all
 
 % Take subselection of conditions
 conditions = {'Run-1','Run-2','Combined'};

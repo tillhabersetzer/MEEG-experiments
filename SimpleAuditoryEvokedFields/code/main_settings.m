@@ -10,7 +10,7 @@ clear settings
 % Define paths
 %-------------
 % FieldTrip path
-settings.path2fieldtrip   = fullfile('C:','Users','tillhabersetzer','Nextcloud','Synchronisation','Projekte','Toolboxen','fieldtrip-20231113');
+settings.path2fieldtrip   = fullfile('C:','Users','tillhabersetzer','Nextcloud','Synchronisation','Projekte','Toolboxen','fieldtrip-20231208');
 % Project path, contains code, rawdata, and derivatives directory
 settings.path2project     = fullfile('C:','Users','tillhabersetzer','Nextcloud','Synchronisation','Projekte','GitHub','MEEG-experiments','SimpleAuditoryEvokedFields');
 settings.subjects         = {'sub-01','sub-02','sub-03'};

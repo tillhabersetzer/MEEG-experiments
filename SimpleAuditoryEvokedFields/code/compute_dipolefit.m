@@ -57,8 +57,8 @@ Nchantypes   = length(channeltypes);
 % subject-specific settings
 %--------------------------
 % same for all subjects
-timewin_struct.sub01 = [0.05, 0.18]; % 50-180 ms
-timewin_struct.sub02 = [0.05, 0.18];
+timewin_struct.sub01 = [0.05, 0.18]; 
+timewin_struct.sub02 = [0.05, 0.18]; % 50-180 ms
 timewin_struct.sub03 = [0.05, 0.18];
 
 %% Computation of dipolefit
